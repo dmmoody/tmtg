@@ -84,6 +84,10 @@ bundle exec sidekiq
 rails rspec
 ```
 
+3. ## SimpleCov
+
+After running the test suite, you can view the test coverage by opening the `coverage/index.html` file in your web browser.
+
 ---
 
 ## Additional Notes
@@ -96,13 +100,14 @@ rails rspec
 
 # Notable Aspects of the Application
 
-## Items Not Implemented
+## Items Not Implemented or not Fully Implemented
 
 The following items are not implemented in the application due to time constraints:
 
-- Error handling and logging
-- API error handling
-- Updating employee records in the database if they have changed in the external API
+- Enhance error handling and logging
+- Enhance API error handling
+- Allow for updating employee records in the database if they have changed in the external API
+- Add more tests for the service objects and background jobs
 
 ## Service Objects
 
@@ -154,3 +159,7 @@ The `LoadEmployeeDataJob` class is responsible for taking the cached response fr
 ### StoreEmployeeDataJob
 
 The `StoreEmployeeDataJob` class is responsible for storing the individual employee data in the database. Each job processes a single employee record. If the employee already exists in the database, it updates the existing record. If the employee does not exist, it creates a new record.
+
+## UI
+
+The application uses Bootstrap for the UI and HTMX for the dynamic content. The `app/views/employees/index.html.erb` file contains the main view for the application. It uses HTMX to fetch the employee data from the server and update the UI without a full page reload.
