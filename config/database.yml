@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch('DATABASE_USER', '') %>
+  password: <%= ENV.fetch('DATABASE_PASSWORD', '') %>
+  port: <%= ENV.fetch('DATABASE_PORT', '5432') %>
+  host: <%= ENV.fetch('DATABASE_HOST', '') %>
+
+development:
+  <<: *default
+  database: tmtg_development
+
+test:
+  <<: *default
+  database: tmtg_test
+
+production:
+  <<: *default
+  database: tmtg_production
+  username: tmtg
+  password: <%= ENV["TMTG_DATABASE_PASSWORD"] %>

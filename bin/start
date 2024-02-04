@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo "Removing hanging servers"
+rm -f tmp/pids/server.pid
+
+echo "Ensuring Gems are installed"
+bundle check || bundle install
+
+echo "Running Database Migrations"
+rails db:migrate
+
+rails s -b 0.0.0.0

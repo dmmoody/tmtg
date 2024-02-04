@@ -1,0 +1,23 @@
+default: &default
+  grant_type: <%= ENV['EMPLOYEE_SERVICE_GRANT_TYPE'] %>
+  client_id: <%= ENV['EMPLOYEE_SERVICE_CLIENT_ID'] %>
+  client_secret: <%= ENV['EMPLOYEE_SERVICE_CLIENT_SECRET'] %>
+  username: <%= ENV['EMPLOYEE_SERVICE_USERNAME'] %>
+  password: <%= ENV['EMPLOYEE_SERVICE_PASSWORD'] %>
+  base_url: <%= ENV['EMPLOYEE_SERVICE_BASE_URL'] %>
+
+development:
+  <<: *default
+#  base_url: 'http://localhost:3001/api/v1'
+
+test:
+  <<: *default
+  grant_type: 'password'
+  client_id: 'client_id'
+  client_secret: 'client_secret'
+  username: 'username'
+  password: 'password'
+  base_url: 'https://example.com/api/v1'
+
+production:
+  <<: *default

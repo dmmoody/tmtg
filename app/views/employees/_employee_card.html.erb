@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mb-3">
+        <div class="card-header">
+          <h5 class="card-title"><%= employee[:first_name] %> <%= employee[:last_name] %></h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">ID: <%= employee[:id] %></p>
+          <p class="card-text">Date of Birth: <%= employee[:date_of_birth] %></p>
+          <p class="card-text">Email: <%= employee[:email] %></p>
+          <p class="card-text">Address: <%= employee[:address] %></p>
+          <p class="card-text">Country: <%= employee[:country] %></p>
+          <p class="card-text">Bio: <%= employee[:bio].join(" ") %></p>
+          <p class="card-text">Rating: <%= employee[:rating] %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
